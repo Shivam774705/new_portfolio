@@ -93,35 +93,28 @@ const Terminal = () => {
     const delay = ms => new Promise(r => setTimeout(r, ms));
 
     const run = async () => {
-      while (!cancelled) {
-        if (!bodyRef.current) break;
-        bodyRef.current.innerHTML = '';
-        bodyRef.current.style.opacity = '1';
+      if (!bodyRef.current) return;
+      bodyRef.current.innerHTML = '';
+      bodyRef.current.style.opacity = '1';
 
-        for (const line of LINES) {
+      for (const line of LINES) {
+        if (cancelled) break;
+        const el = document.createElement('div');
+        el.style.cssText = `color:${line.color};font-family:'JetBrains Mono',monospace;font-size:0.7rem;line-height:1.75;white-space:pre;min-height:1.2em;`;
+        bodyRef.current?.appendChild(el);
+        for (let i = 0; i < line.text.length; i++) {
           if (cancelled) break;
-          const el = document.createElement('div');
-          el.style.cssText = `color:${line.color};font-family:'JetBrains Mono',monospace;font-size:0.7rem;line-height:1.75;white-space:pre;min-height:1.2em;`;
-          bodyRef.current?.appendChild(el);
-          for (let i = 0; i < line.text.length; i++) {
-            if (cancelled) break;
-            el.textContent = line.text.slice(0, i + 1);
-            await delay(36);
-          }
-          await delay(200);
+          el.textContent = line.text.slice(0, i + 1);
+          await delay(36);
         }
+        await delay(200);
+      }
 
+      if (!cancelled) {
         const cur = document.createElement('span');
-        cur.textContent = '';
-        cur.style.cssText = `color:#22c55e;font-size:0.8rem;animation:blink 1s step-end infinite;`;
+        cur.textContent = '█';
+        cur.style.cssText = `color:#22c55e;font-size:0.8rem;animation:blink 1s step-end infinite;margin-left: 2px;`;
         bodyRef.current?.appendChild(cur);
-
-        await delay(2600);
-        if (bodyRef.current) {
-          bodyRef.current.style.transition = 'opacity .4s';
-          bodyRef.current.style.opacity = '0';
-        }
-        await delay(450);
       }
     };
     run();

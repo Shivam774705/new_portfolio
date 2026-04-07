@@ -31,8 +31,8 @@
   --cream: var(--color-base-200);
   --p-color: var(--color-primary);
   --p-color-2: var(--color-secondary);
-  --dim: color-mix(in srgb, var(--color-base-content), transparent 55%);
-  --dimmer: color-mix(in srgb, var(--color-base-content), transparent 82%);
+  --dim: color-mix(in srgb, var(--color-base-content), transparent 30%);
+  --dimmer: color-mix(in srgb, var(--color-base-content), transparent 60%);
   --border: color-mix(in srgb, var(--color-base-content), transparent 90%);
 }
 
