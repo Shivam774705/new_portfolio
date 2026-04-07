@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: ["forest"];
+  themes: forest;
 }
 @font-face {
   font-family: 'Railey';
@@ -26,7 +26,7 @@
   --border: color-mix(in srgb, var(--color-base-content), transparent 90%);
 }
 
-html { scroll-behavior: auto; }
+html { scroll-behavior: auto; color-scheme: dark; }
 
 body {
   font-family: 'Inter', sans-serif;
