@@ -82,7 +82,6 @@ const LINES = [
   { text: '● open · Bhopal, IN', color: '#e2e8f0' },
   { text: '$ contact --info', color: '#22c55e' },
   { text: 'Email: Kumarshivam774705@gmail.com', color: '#e2e8f0' },
-  { text: 'GitHub: github.com/Shivam774705', color: '#e2e8f0' },
 ];
 
 const Terminal = () => {
@@ -320,10 +319,6 @@ const Hero = () => {
           <div className="hstat">
             <div className="hstat-num"><span className="orange">8</span>+</div>
             <div className="hstat-label">Technologies</div>
-          </div>
-          <div className="hstat">
-            <div className="hstat-num">6<span className="orange">.</span>88</div>
-            <div className="hstat-label">CGPA</div>
           </div>
         </div>
 
