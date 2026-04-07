@@ -16,6 +16,16 @@
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
+  /* Manual Forest Theme Colors */
+  --color-primary: #1eb854;
+  --color-secondary: #1db88e;
+  --color-accent: #1db8ab;
+  --color-neutral: #19362d;
+  --color-base-100: #171212;
+  --color-base-200: #110e0e;
+  --color-base-300: #0a0808;
+  --color-base-content: #c4cdc1;
+
   --black: var(--color-base-100);
   --white: var(--color-base-content);
   --cream: var(--color-base-200);
