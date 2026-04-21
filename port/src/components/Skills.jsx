@@ -15,7 +15,7 @@ const Skills = () => {
             <div className="skills-counters will-fade">
               <div className="sk-counter">
                 <div className="sk-counter-num">
-                  <span>18</span>
+                  <span>20</span>+
                 </div>
                 <div className="sk-counter-label">Total Skills</div>
               </div>
@@ -27,17 +27,15 @@ const Skills = () => {
               </div>
               <div className="sk-counter">
                 <div className="sk-counter-num">
-                  <span>6</span>
-                  <span style={{ color: 'var(--orange)' }}>+</span>
+                  <span>6</span>+
                 </div>
                 <div className="sk-counter-label">Projects Built</div>
               </div>
               <div className="sk-counter">
                 <div className="sk-counter-num">
-                  <span>1</span>
-                  <span style={{ color: 'var(--orange)' }}>yr</span>
+                  <span>2</span>+
                 </div>
-                <div className="sk-counter-label">Experience</div>
+                <div className="sk-counter-label">Years Coding</div>
               </div>
             </div>
           </div>
