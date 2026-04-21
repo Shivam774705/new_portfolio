@@ -4,7 +4,7 @@ Welcome to the repository for my personal portfolio website! This project is des
 
 ## 🚀 Live Demo
 
-**[View the Live Portfolio](https://shivam-brrc.onrender.com)** *(Note: Update this link if your deployment URL changes)*
+**[View the Live Portfolio](https://shivam-kumar-kesharwani.onrender.com/)**
 
 ## ✨ Features
 
