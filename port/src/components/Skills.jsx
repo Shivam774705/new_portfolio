@@ -44,42 +44,46 @@ const Skills = () => {
           <div className="skills-right will-slide-right">
             <div className="skill-cat">
               <div className="skill-cat-header">
-                <div className="skill-cat-name">Foundations</div>
-                <div className="skill-cat-count">3 skills</div>
-              </div>
-              <div className="skill-cat-body">
-                <div className="skill-pills">
-                  <div className="sp"><div className="sp-dot"></div>C</div>
-                  <div className="sp"><div className="sp-dot"></div>C++</div>
-                  <div className="sp"><div className="sp-dot"></div>Python</div>
-                </div>
-              </div>
-            </div>
-            <div className="skill-cat">
-              <div className="skill-cat-header">
-                <div className="skill-cat-name">Web Core</div>
-                <div className="skill-cat-count">3 skills</div>
-              </div>
-              <div className="skill-cat-body">
-                <div className="skill-pills">
-                  <div className="sp"><div className="sp-dot"></div>HTML5</div>
-                  <div className="sp"><div className="sp-dot"></div>CSS3</div>
-                  <div className="sp"><div className="sp-dot"></div>JavaScript</div>
-                </div>
-              </div>
-            </div>
-            <div className="skill-cat">
-              <div className="skill-cat-header">
-                <div className="skill-cat-name">Frameworks & Backend</div>
+                <div className="skill-cat-name">Languages</div>
                 <div className="skill-cat-count">5 skills</div>
               </div>
               <div className="skill-cat-body">
                 <div className="skill-pills">
-                  <div className="sp"><div className="sp-dot"></div>React</div>
-                  <div className="sp"><div className="sp-dot"></div>Node.js</div>
-                  <div className="sp"><div className="sp-dot"></div>Express</div>
-                  <div className="sp"><div className="sp-dot"></div>Django</div>
+                  <div className="sp"><div className="sp-dot"></div>JavaScript (ES6+)</div>
+                  <div className="sp"><div className="sp-dot"></div>Python</div>
+                  <div className="sp"><div className="sp-dot"></div>SQL</div>
+                  <div className="sp"><div className="sp-dot"></div>HTML5</div>
+                  <div className="sp"><div className="sp-dot"></div>CSS3</div>
+                </div>
+              </div>
+            </div>
+            <div className="skill-cat">
+              <div className="skill-cat-header">
+                <div className="skill-cat-name">Frontend</div>
+                <div className="skill-cat-count">5 skills</div>
+              </div>
+              <div className="skill-cat-body">
+                <div className="skill-pills">
+                  <div className="sp"><div className="sp-dot"></div>React.js</div>
                   <div className="sp"><div className="sp-dot"></div>Tailwind CSS</div>
+                  <div className="sp"><div className="sp-dot"></div>SCSS</div>
+                  <div className="sp"><div className="sp-dot"></div>Responsive Design</div>
+                  <div className="sp"><div className="sp-dot"></div>Figma & Canva</div>
+                </div>
+              </div>
+            </div>
+            <div className="skill-cat">
+              <div className="skill-cat-header">
+                <div className="skill-cat-name">Backend</div>
+                <div className="skill-cat-count">5 skills</div>
+              </div>
+              <div className="skill-cat-body">
+                <div className="skill-pills">
+                  <div className="sp"><div className="sp-dot"></div>Django</div>
+                  <div className="sp"><div className="sp-dot"></div>Node.js</div>
+                  <div className="sp"><div className="sp-dot"></div>Express.js</div>
+                  <div className="sp"><div className="sp-dot"></div>REST APIs</div>
+                  <div className="sp"><div className="sp-dot"></div>JWT Auth</div>
                 </div>
               </div>
             </div>
@@ -92,21 +96,22 @@ const Skills = () => {
                 <div className="skill-pills">
                   <div className="sp"><div className="sp-dot"></div>MySQL</div>
                   <div className="sp"><div className="sp-dot"></div>MongoDB</div>
-                  <div className="sp"><div className="sp-dot"></div>SQLite</div>
+                  <div className="sp"><div className="sp-dot"></div>NeonDB</div>
                 </div>
               </div>
             </div>
             <div className="skill-cat">
               <div className="skill-cat-header">
-                <div className="skill-cat-name">Tools & Workflow</div>
-                <div className="skill-cat-count">4 skills</div>
+                <div className="skill-cat-name">DevOps & Tools</div>
+                <div className="skill-cat-count">5 skills</div>
               </div>
               <div className="skill-cat-body">
                 <div className="skill-pills">
                   <div className="sp"><div className="sp-dot"></div>Git & GitHub</div>
+                  <div className="sp"><div className="sp-dot"></div>Postman & Thunder Client</div>
                   <div className="sp"><div className="sp-dot"></div>VS Code</div>
-                  <div className="sp"><div className="sp-dot"></div>Postman</div>
-                  <div className="sp"><div className="sp-dot"></div>Thunder Client</div>
+                  <div className="sp"><div className="sp-dot"></div>Render</div>
+                  <div className="sp"><div className="sp-dot"></div>Vercel</div>
                 </div>
               </div>
             </div>

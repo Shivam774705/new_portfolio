@@ -4,7 +4,7 @@ const BALLOONS = [
   {
     id: 'github',
     label: 'GitHub',
-    href: 'https://github.com/shivamvishnu74',
+    href: 'https://github.com/Shivam774705',
     color: '#e85d04',
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -16,7 +16,7 @@ const BALLOONS = [
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    href: 'https://linkedin.com/in/shivamvishnu74',
+    href: 'https://linkedin.com/in/shivam-kumar-kesharwani',
     color: '#f48c06',
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -30,7 +30,7 @@ const BALLOONS = [
   {
     id: 'email',
     label: 'Email',
-    href: 'mailto:shivamvishnu74@gmail.com',
+    href: 'mailto:kumarshivam774705@gmail.com',
     color: '#e85d04',
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -214,7 +214,7 @@ export default function Contact() {
           width: 100%;
           padding-right: 320px; /* Default for desktop */
         }
-        @media (max-width: 1100px) {
+        @media (max-width: 800px) {
           .bln-heading-wrap { padding-right: 0; }
         }
 
@@ -300,7 +300,8 @@ export default function Contact() {
         }
 
         /* responsive: on small screens give heading enough right padding */
-          @media (max-width: 600px) {
+          /* ── 800px responsive: move balloons below heading text ── */
+          @media (max-width: 800px) {
             .bln-zone { 
               position: relative; 
               right: auto; 
@@ -309,8 +310,22 @@ export default function Contact() {
               justify-content: center;
               gap: 1.5rem; 
             }
-            .bln-circle { width: 72px; height: 72px; }
+            .bln-circle { width: 80px; height: 80px; }
             .bln-heading-wrap { display: flex; flex-direction: column; }
+          }
+
+          /* ── 450px responsive: smaller balloons ── */
+          @media (max-width: 450px) {
+            .bln-circle { width: 72px; height: 72px; }
+            .bln-zone { gap: 1.2rem; margin-top: 1.5rem; }
+            .bln-label { font-size: 0.42rem; }
+          }
+
+          /* ── 360px responsive: even tighter ── */
+          @media (max-width: 360px) {
+            .bln-circle { width: 64px; height: 64px; }
+            .bln-zone { gap: 1rem; margin-top: 1.2rem; }
+            .bln-label { font-size: 0.38rem; }
           }
 
           /* Toast Popup Styles */
@@ -448,7 +463,7 @@ export default function Contact() {
                   <div className="c-info-icon">📧</div>
                   <div>
                     <div className="c-info-label">Email</div>
-                    <div className="c-info-val">shivamvishnu74@gmail.com</div>
+                    <div className="c-info-val">kumarshivam774705@gmail.com</div>
                   </div>
                 </div>
                 <div className="c-info-item">
@@ -468,9 +483,9 @@ export default function Contact() {
               </div>
 
               <div className="social-links will-fade">
-                <a href="https://github.com/shivamvishnu74" className="s-link">GitHub</a>
-                <a href="https://linkedin.com/in/shivamvishnu74" className="s-link">LinkedIn</a>
-                <a href="mailto:shivamvishnu74@gmail.com" className="s-link">Email</a>
+                <a href="https://github.com/Shivam774705" className="s-link">GitHub</a>
+                <a href="https://linkedin.com/in/shivam-kumar-kesharwani" className="s-link">LinkedIn</a>
+                <a href="mailto:kumarshivam774705@gmail.com" className="s-link">Email</a>
                 <a href="tel:+917747053574" className="s-link">Call</a>
               </div> */}
             </div>

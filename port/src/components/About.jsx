@@ -12,11 +12,11 @@ const About = () => {
         <div className="about-grid">
           <div className="about-left">
             <p className="about-intro will-fade">
-              I'm a <strong>Web Developer</strong> from Bhopal, India — passionate about building{' '}
+              I'm a <strong>Full-Stack Developer</strong> from Bhopal, India — passionate about building{' '}
               <span className="hl" style={{ color: 'var(--orange)' }}>
-                clean, functional, scalable
+                scalable, responsive, production-ready
               </span>{' '}
-              web applications that actually solve problems. I specialize in the full stack, from polished frontends to robust backends.
+              web applications. I specialize in full-stack ecosystems, from polished React frontends to robust Django and Node.js backends.
             </p>
             <div className="will-fade">
               <div className="exp-item">
@@ -25,29 +25,33 @@ const About = () => {
                     <div className="exp-role">Junior Software Developer (Intern)</div>
                     <div className="exp-company">Shroti Telecom Pvt. Ltd. (STPL)</div>
                   </div>
-                  <div className="exp-date">Sept 2025 — Feb 2026</div>
+                  <div className="exp-date">Aug 2025 — Feb 2026</div>
                 </div>
                 <ul className="exp-points">
-                  <li>Developed 10+ responsive frontend screens for RMS & AIRTEL monitoring using HTML/CSS/JS.</li>
-                  <li>Built 10+ REST APIs in Django to process real-time site monitoring data.</li>
-                  <li>Executed manual testing & API validation using Thunder Client.</li>
+                  <li>Developed 10+ responsive frontend screens for RMS and Airtel monitoring systems using HTML/CSS, JS, and Tailwind CSS.</li>
+                  <li>Built and maintained 10+ REST API endpoints in Django to process real-time site monitoring operational data.</li>
+                  <li>Applied UI/UX principles via Figma to design intuitive interfaces.</li>
+                  <li>Validated and debugged APIs using Postman and Thunder Client, improving production stability.</li>
                 </ul>
                 <div className="chip-row">
                   <span className="chip">Django</span>
-                  <span className="chip">Python</span>
                   <span className="chip">JavaScript</span>
-                  <span className="chip">HTML/CSS</span>
+                  <span className="chip">Tailwind CSS</span>
+                  <span className="chip">React.js</span>
+                  <span className="chip">Figma</span>
                   <span className="chip">MySQL</span>
                 </div>
               </div>
             </div>
             <div className="cert-block will-fade" style={{ marginTop: '1rem' }}>
-              <div className="cert-tag">📜 Certification</div>
+              <div className="cert-tag">📜 Certifications & Training</div>
               <div className="cert-name">Django Essentials: Build and Deploy Real-World Apps</div>
               <div className="cert-platform">Udemy · 2025</div>
               <div className="cert-desc">
                 Hands-on experience in Django web development, REST API design, database integration, and production deployment.
               </div>
+              <div className="cert-name" style={{ marginTop: '0.8rem' }}>Python Essential 1 & 2</div>
+              <div className="cert-platform">Cisco Networking Academy</div>
             </div>
           </div>
           <div className="about-right will-slide-right">
@@ -58,7 +62,7 @@ const About = () => {
                 <div className="edu-school">Sagar Group of Institutions (SISTec GN)</div>
                 <div className="edu-meta">
                   <span>Bhopal, MP</span>
-                  <span>2026 · CGPA 6.62/10</span>
+                  <span>2022 - 2026 · CGPA 7.01/10</span>
                 </div>
               </div>
               <div className="edu-item">

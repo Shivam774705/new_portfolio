@@ -11,9 +11,9 @@ const Footer = () => {
         Built with <a href="#">React.js</a> & <a href="#">Tailwind CSS</a>
       </div>
       <div className="fl-right">
-        <a href="#">GitHub</a>
-        <a href="#">LinkedIn</a>
-        <a href="mailto:shivamvishnu74@gmail.com">Email</a>
+        <a href="https://github.com/Shivam774705" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/shivam-kumar-kesharwani" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:kumarshivam774705@gmail.com">Email</a>
       </div>
     </footer>
   );
