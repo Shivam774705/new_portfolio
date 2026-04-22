@@ -52,7 +52,16 @@ body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  cursor: none;
+}
+
+/* Enable custom cursor only for devices with a mouse/trackpad */
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
+}
+
+/* Hide the custom cursor dot/trail on touch screens */
+@media (hover: none), (pointer: coarse) {
+  #cur, #cur-trail { display: none !important; }
 }
 
 #root, .App {
