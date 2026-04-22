@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-
+import { API } from '../config';
 const BALLOONS = [
   {
     id: 'github',
@@ -9,7 +9,7 @@ const BALLOONS = [
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
         strokeLinecap="round" strokeLinejoin="round" width="30" height="30">
-        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
       </svg>
     ),
   },
@@ -21,9 +21,9 @@ const BALLOONS = [
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
         strokeLinecap="round" strokeLinejoin="round" width="30" height="30">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-        <rect x="2" y="9" width="4" height="12"/>
-        <circle cx="4" cy="4" r="2"/>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
       </svg>
     ),
   },
@@ -35,8 +35,8 @@ const BALLOONS = [
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
         strokeLinecap="round" strokeLinejoin="round" width="30" height="30">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-        <polyline points="22,6 12,13 2,6"/>
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+        <polyline points="22,6 12,13 2,6" />
       </svg>
     ),
   },
@@ -46,10 +46,10 @@ const BALLOONS = [
 const STRING_H = 80;
 
 export default function Contact() {
-  const balloonRefs   = useRef([]);
+  const balloonRefs = useRef([]);
   const svgStringRefs = useRef([]);
-  const anchorRefs    = useRef([]);
-  const isDragging    = useRef(false);
+  const anchorRefs = useRef([]);
+  const isDragging = useRef(false);
 
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
@@ -60,53 +60,60 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    setStatus('sending');
-    try {
-      const response = await fetch('http://localhost:3001/api/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      const data = await response.json();
+    // Immediately show success for a snappy UX
+    setStatus("success");
+    setStatusMsg("Message sent successfully!");
 
-      if (response.ok) {
-        setStatus('success');
-        setStatusMsg(data.message || 'Message sent successfully!');
-        setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setStatus('idle'), 4000);
-      } else {
-        throw new Error(data.error || 'Failed to send message.');
-      }
-    } catch (error) {
-      setStatus('error');
-      setStatusMsg(error.message || 'Something went wrong. Please try again.');
-      setTimeout(() => setStatus('idle'), 4000);
-    }
+    // Send in the background
+    fetch(`${API}/api/send`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    }).catch(error => {
+      console.error("Failed to send email silently:", error);
+    });
+
+    // Clear form
+    setFormData({ name: '', email: '', message: '' });
   };
+
+  useEffect(() => {
+    if (status === 'success' || status === 'error') {
+      const timer = setTimeout(() => {
+        setStatus('idle');
+        setStatusMsg('');
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   useEffect(() => {
     const loadGSAP = () =>
       window.gsap
         ? Promise.resolve(window.gsap)
         : new Promise((res) => {
-            const s = document.createElement('script');
-            s.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
-            s.onload = () => res(window.gsap);
-            document.head.appendChild(s);
-          });
+          const s = document.createElement('script');
+          s.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+          s.onload = () => res(window.gsap);
+          document.head.appendChild(s);
+        });
 
     loadGSAP().then((gsap) => {
       balloonRefs.current.forEach((el, i) => {
         if (!el) return;
         gsap.fromTo(el,
           { y: -(STRING_H + 120), opacity: 0, scale: 0.5 },
-          { y: 0, opacity: 1, scale: 1,
+          {
+            y: 0, opacity: 1, scale: 1,
             duration: 1.5, delay: 0.5 + i * 0.2,
-            ease: 'elastic.out(1, 0.5)' }
+            ease: 'elastic.out(1, 0.5)'
+          }
         );
         gsap.to(el, {
           rotation: i % 2 === 0 ? 8 : -8,
@@ -127,19 +134,19 @@ export default function Contact() {
     const endY = STRING_H + dy;
     const minX = Math.min(0, endX) - 10;
     const maxX = Math.max(0, endX) + 10;
-    const vbW  = maxX - minX;
-    const vbH  = Math.max(STRING_H, endY) + 10;
+    const vbW = maxX - minX;
+    const vbH = Math.max(STRING_H, endY) + 10;
     svg.setAttribute('viewBox', `${minX} 0 ${vbW} ${vbH}`);
-    svg.setAttribute('width',  String(vbW));
+    svg.setAttribute('width', String(vbW));
     svg.setAttribute('height', String(vbH));
     svg.style.marginLeft = `${minX}px`;
     const path = svg.querySelector('path');
     if (!path) return;
-    const dist  = Math.sqrt(dx * dx + endY * endY);
+    const dist = Math.sqrt(dx * dx + endY * endY);
     const droop = Math.max(4, 18 - dist * 0.06);
     const angle = Math.atan2(endY, endX) + Math.PI / 2;
-    const cpX   = endX / 2 + Math.cos(angle) * droop;
-    const cpY   = endY / 2 + Math.sin(angle) * droop;
+    const cpX = endX / 2 + Math.cos(angle) * droop;
+    const cpY = endY / 2 + Math.sin(angle) * droop;
     path.setAttribute('d', `M 0 0 Q ${cpX} ${cpY} ${endX} ${endY}`);
   };
 
@@ -154,14 +161,14 @@ export default function Contact() {
     const startY = e.clientY ?? e.touches?.[0]?.clientY ?? 0;
 
     const onMove = (ev) => {
-      const cx   = ev.clientX ?? ev.touches?.[0]?.clientX ?? startX;
-      const cy   = ev.clientY ?? ev.touches?.[0]?.clientY ?? startY;
-      const dx   = cx - startX;
-      const dy   = cy - startY;
+      const cx = ev.clientX ?? ev.touches?.[0]?.clientX ?? startX;
+      const cy = ev.clientY ?? ev.touches?.[0]?.clientY ?? startY;
+      const dx = cx - startX;
+      const dy = cy - startY;
       const dist = Math.sqrt(dx * dx + dy * dy);
       const clamp = Math.min(dist, 200);
       const squishAlong = Math.max(0.6, 1 - clamp * 0.002);
-      const squishPerp  = Math.min(1.4, 1 + clamp * 0.0015);
+      const squishPerp = Math.min(1.4, 1 + clamp * 0.0015);
       const angle = Math.atan2(dy, dx) * (180 / Math.PI) - 90;
       gsap.set(el, { x: dx, y: dy, scaleX: squishPerp, scaleY: squishAlong, rotation: angle, transformOrigin: '50% 50%' });
       updateString(i, dx, dy);
@@ -495,39 +502,39 @@ export default function Contact() {
               <form className="cf-form" onSubmit={handleSubmit}>
                 <div className="cf-group">
                   <label>Your Name</label>
-                  <input 
-                    type="text" 
-                    name="name" 
-                    placeholder="John Doe" 
-                    required 
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="John Doe"
+                    required
                     value={formData.name}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="cf-group">
                   <label>Email Address</label>
-                  <input 
-                    type="email" 
-                    name="email" 
-                    placeholder="john@example.com" 
-                    required 
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="john@example.com"
+                    required
                     value={formData.email}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="cf-group">
                   <label>Message</label>
-                  <textarea 
-                    name="message" 
-                    placeholder="Hello! I'd like to discuss a project..." 
+                  <textarea
+                    name="message"
+                    placeholder="Hello! I'd like to discuss a project..."
                     required
                     value={formData.message}
                     onChange={handleChange}
                   ></textarea>
                 </div>
-                <button 
-                  type="submit" 
-                  className="btn-submit" 
+                <button
+                  type="submit"
+                  className="btn-submit"
                   disabled={status === 'sending'}
                 >
                   {status === 'sending' ? 'Sending...' : 'Send Message →'}

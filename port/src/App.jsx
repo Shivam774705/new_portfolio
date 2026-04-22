@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
 import Cursor from './components/Cursor';
-import Loader from './components/Loader';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import About from './components/About';
@@ -327,9 +326,8 @@ const Navbar = () => {
   );
 };
 
-/* ══════════════════ APP ══════════════════ */
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const marqueeItems = [
     { text: 'JavaScript (ES6+)', highlight: true },
@@ -351,8 +349,6 @@ function App() {
     { text: 'Render' },
     { text: 'Figma', highlight: true },
   ];
-
-  const handleLoaderComplete = () => setLoading(false);
 
   useEffect(() => {
     if (!loading) {
@@ -409,7 +405,6 @@ function App() {
   return (
     <div className="App">
       <Cursor />
-      <Loader onComplete={handleLoaderComplete} />
       {!loading && (
         <>
           <Navbar />
