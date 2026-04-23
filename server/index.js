@@ -12,6 +12,7 @@ const port = process.env.PORT || 5000;
 app.use(cors({
   origin: [
     'http://localhost:5173',
+    'https://shivam-kumar.onrender.com',
     'https://shivam-kumar-kesharwani.vercel.app',
     'https://new-portfolio-6ove.onrender.com'
   ],
