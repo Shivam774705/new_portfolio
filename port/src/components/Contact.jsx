@@ -60,27 +60,35 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Immediately show success for a snappy UX
-    setStatus("success");
-    setStatusMsg("Message sent successfully!");
+    setStatus("sending");
+    setStatusMsg("Sending message...");
 
-    // Send in the background
-    fetch(`${API}/api/send`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(formData)
-    }).catch(error => {
-      console.error("Failed to send email silently:", error);
-    });
+    try {
+      const response = await fetch(`${API}/api/send`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
 
-    // Clear form
-    setFormData({ name: '', email: '', message: '' });
+      if (response.ok) {
+        setStatus("success");
+        setStatusMsg("Message sent successfully!");
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to send message");
+      }
+    } catch (error) {
+      console.error("Contact Form Error:", error);
+      setStatus("error");
+      setStatusMsg(error.message || "Something went wrong. Please try again.");
+    }
   };
 
   useEffect(() => {

@@ -258,14 +258,16 @@ body.cursor-big #cur { width:60px; height:60px; background:rgba(232,93,4,0.15); 
 .project-item {
   border-top:1px solid var(--border); padding:3rem 0;
   display:grid; grid-template-columns:0.4fr 1fr 0.6fr; gap:3rem; align-items:start;
-  cursor:pointer; transition:background 0.3s;
+  transition:background 0.3s;
   position:relative; overflow:hidden;
 }
 .project-item::after {
   content:''; position:absolute; inset:0;
   background:linear-gradient(90deg, transparent, rgba(232,93,4,0.03));
   opacity:0; transition:opacity 0.3s;
+  pointer-events:none; z-index:1;
 }
+.p-num, .p-main, .p-meta { position:relative; z-index:2; }
 .project-item:hover::after { opacity:1; }
 .project-item:last-child { border-bottom:1px solid var(--border); }
 
@@ -278,16 +280,25 @@ body.cursor-big #cur { width:60px; height:60px; background:rgba(232,93,4,0.15); 
 .p-points { list-style:none; }
 .p-points li { font-size:0.78rem; color:var(--dimmer); line-height:1.7; padding-left:1rem; position:relative; }
 .p-points li::before { content:'→'; position:absolute; left:0; color:var(--p-color); font-size:0.7rem; }
-.p-meta { text-align:right; }
-.p-date { font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--dimmer); letter-spacing:0.1em; margin-bottom:1rem; }
+.p-meta { text-align:right; display: flex; flex-direction: column; justify-content: space-between; }
+.p-info-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: flex-end; margin-bottom: 1rem; }
+.p-info-item { text-align: right; }
+.p-info-label { font-family:'JetBrains Mono',monospace; font-size:0.55rem; color:var(--dimmer); letter-spacing:0.1em; text-transform:uppercase; margin-bottom: 0.2rem; }
+.p-info-val { font-size:0.75rem; color:var(--white); font-weight:500; }
+.p-date { font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--dimmer); letter-spacing:0.1em; margin-bottom:1rem; display: none; } /* Hidden in favor of info-row */
+.p-links { display:flex; gap:1.2rem; margin-bottom:1rem; justify-content:flex-end; }
 .p-link {
-  display:inline-flex; align-items:center; gap:0.5rem;
-  font-size:0.78rem; color:var(--p-color); text-decoration:none;
+  display:inline-flex; align-items:center; gap:0.4rem;
+  font-size:0.75rem; color:var(--p-color); text-decoration:none;
   font-family:'JetBrains Mono',monospace; letter-spacing:0.05em;
-  border-bottom:1px solid transparent; transition:border-color 0.2s;
+  border-bottom:1px solid transparent; transition:border-color 0.2s, opacity 0.2s;
 }
-.p-link:hover { border-color:var(--p-color); }
-.p-chip-col { display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:flex-end; margin-top:1rem; }
+.p-link:hover { border-color:var(--p-color); opacity:0.8; }
+.p-chip-col { display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:flex-end; margin-top:0.5rem; }
+
+/* Technical Highlights / Engineering Depth */
+.p-highlights { margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px dashed var(--border); }
+.p-h-label { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--p-color); letter-spacing:0.1em; text-transform:uppercase; margin-bottom: 0.6rem; }
 
 /* ── SKILLS ── */
 #skill { border-top:1px solid var(--border); }
@@ -467,6 +478,7 @@ footer {
   .p-num { font-size: 3rem; }
   .p-title { font-size: 2rem; }
   .p-meta { text-align: left; }
+  .p-links { justify-content: flex-start; }
   .p-chip-col { justify-content: flex-start; }
   .p-tagline { font-size: 0.8rem; }
 

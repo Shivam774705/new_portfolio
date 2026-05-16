@@ -158,7 +158,7 @@ const Hero = () => {
                 <div className="hero-stat-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                 </div>
-                <div className="hero-stat-number"><Counter end={6} /></div>
+                <div className="hero-stat-number"><Counter end={10} /></div>
                 <div className="hero-stat-label">Projects</div>
               </div>
               <div className="hero-stat-divider" />
@@ -166,7 +166,7 @@ const Hero = () => {
                 <div className="hero-stat-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
                 </div>
-                <div className="hero-stat-number"><Counter end={20} /></div>
+                <div className="hero-stat-number"><Counter end={24} /></div>
                 <div className="hero-stat-label">Technologies</div>
               </div>
               <div className="hero-stat-divider" />
