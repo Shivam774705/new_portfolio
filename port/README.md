@@ -28,7 +28,7 @@ A production-ready personal portfolio built to communicate my work, experience, 
 | Styling | Vanilla CSS (custom design system) + Tailwind CSS v4 |
 | Animations | GSAP 3 + ScrollTrigger |
 | Build Tool | Vite |
-| Deployed On | Render |
+| Deployed On | Vercel |
 | Performance | 81 modules, ~427 kB JS (gzip: ~138 kB), ~64 kB CSS (gzip: ~13 kB) |
 
 The portfolio is a **single-page application** with smooth scroll-driven section reveals, a pinned project card deck, a custom cursor, a velocity-aware marquee, and a contact form — all without any third-party UI component library.
@@ -73,33 +73,33 @@ The portfolio is a **single-page application** with smooth scroll-driven section
 ## Project Structure
 
 ```
-new_portfolio/
-└── port/
-    ├── public/
-    │   └── icons.svg           # Inline SVG sprite (social icons, arrow icons)
-    ├── src/
-    │   ├── assets/             # Static files (resume PDF, certificates, project images)
-    │   ├── components/
-    │   │   ├── Hero.jsx        # Landing section: animated headline, CTA buttons, status badge
-    │   │   ├── Marquee.jsx     # Velocity-tilt infinite scroll ticker
-    │   │   ├── About.jsx       # Split-grid: story narrative + quick facts + education cards
-    │   │   ├── Experience.jsx  # Timeline: Shroti Telecom full-time + internship roles
-    │   │   ├── Projects.jsx    # GSAP-pinned card deck (5 projects + Explore More card)
-    │   │   ├── Skills.jsx      # Stats row + 2×2 skill category card grid
-    │   │   ├── Certificates.jsx# Certificate modal lightbox gallery
-    │   │   ├── Contact.jsx     # EmailJS contact form + social links
-    │   │   ├── Footer.jsx      # Minimal branding footer
-    │   │   ├── Cursor.jsx      # Custom SVG cursor with hover tracking
-    │   │   ├── Loader.jsx      # Preloader spinner
-    │   │   ├── PillNav.jsx     # Floating pill navigation (section-aware active state)
-    │   │   └── Blog.jsx        # Placeholder blog section
-    │   ├── App.jsx             # Root — Navbar, GSAP global effects, section assembly
-    │   ├── index.css           # Full design system: tokens, layouts, components, breakpoints
-    │   ├── config.js           # Site metadata (name, email, social links)
-    │   └── main.jsx            # React DOM entry point
-    ├── index.html              # Shell HTML with font links, meta tags, preconnects
-    ├── vite.config.js          # Vite + React + Tailwind plugin config
-    └── package.json            # Dependencies and scripts
+port/
+├── public/
+│   └── icons.svg           # Inline SVG sprite (social icons, arrow icons)
+├── src/
+│   ├── assets/             # Static files (resume PDF, certificates, project images)
+│   ├── components/
+│   │   ├── Hero.jsx        # Landing section: animated headline, CTA buttons, status badge
+│   │   ├── Marquee.jsx     # Velocity-tilt infinite scroll ticker
+│   │   ├── About.jsx       # Split-grid: story narrative + quick facts + education cards
+│   │   ├── Experience.jsx  # Timeline: Shroti Telecom full-time + internship roles
+│   │   ├── Projects.jsx    # GSAP-pinned card deck (5 projects + Explore More card)
+│   │   ├── Skills.jsx      # Stats row + 2×2 skill category card grid
+│   │   ├── Certificates.jsx# Certificate modal lightbox gallery
+│   │   ├── Contact.jsx     # EmailJS contact form + social links
+│   │   ├── Footer.jsx      # Minimal branding footer
+│   │   ├── Cursor.jsx      # Custom SVG cursor with hover tracking
+│   │   ├── Loader.jsx      # Preloader spinner (unused — loading state bypassed)
+│   │   ├── PillNav.jsx     # Floating pill navigation (section-aware active state)
+│   │   ├── PortfolioNavbar.jsx # Legacy navbar (replaced by inline Navbar in App.jsx)
+│   │   └── Blog.jsx        # Placeholder blog section
+│   ├── App.jsx             # Root — Navbar, GSAP global effects, section assembly
+│   ├── index.css           # Full design system: tokens, layouts, components, breakpoints
+│   ├── config.js           # Site metadata (name, email, social links)
+│   └── main.jsx            # React DOM entry point
+├── index.html              # Shell HTML with font links, meta tags, preconnects
+├── vite.config.js          # Vite + React + Tailwind plugin config
+└── package.json            # Dependencies and scripts
 ```
 
 ---
@@ -143,7 +143,7 @@ The entire UI — navbar, cards, timeline, modals, forms, pills, cursor — is h
 | `.will-slide-left` | Slide in from left | `gsap.to()` with `ScrollTrigger` |
 | `.will-slide-right` | Slide in from right | `gsap.to()` with `ScrollTrigger` |
 | `.sec-big` | Clip-path left-to-right text reveal | `gsap.fromTo()` with `clipPath` |
-| `.sk-stat-num span` | Number count-up animation | `gsap.from()` with `textContent` snap |
+| `.sk-counter-num span` | Number count-up animation | `gsap.from()` with `textContent` snap |
 | `#mq2` (Marquee) | Velocity-based skew on scroll | `ScrollTrigger.onUpdate` + `getVelocity()` |
 | Project cards | Pinned deck scroll + sequential reveal | `ScrollTrigger` pin + `gsap.timeline()` |
 | Mobile menu | Slide-down appear / fade-out dismiss | `gsap.fromTo()` / `gsap.to()` |
@@ -198,7 +198,7 @@ The entire UI — navbar, cards, timeline, modals, forms, pills, cursor — is h
 
 ## Responsive Design
 
-Five breakpoints are defined in `index.css`:
+Four breakpoints are defined in `index.css`:
 
 | Breakpoint | Target |
 |---|---|
@@ -218,10 +218,9 @@ All layouts use CSS Grid (`grid-template-columns`) for structural control and fl
 - Node.js ≥ 18
 - npm ≥ 9
 
-### Clone & Install
+### Install
 ```bash
-git clone https://github.com/Shivam774705/new_portfolio.git
-cd new_portfolio/port
+cd port
 npm install
 ```
 
@@ -263,13 +262,13 @@ Output Directory: dist
 Framework Preset: Vite
 ```
 
-Environment variables are set via `.env.production` and Vercel's project dashboard.
+Environment variables (if any) are set via `.env.production` and Vercel's dashboard.
 
 ---
 
 ## Author
 
-**Shivam Kumar Kesharwani**  
+**Shivam Kumar Kesharwani**
 Full-Stack Developer · Bhopal, India
 
 - GitHub: [@Shivam774705](https://github.com/Shivam774705)
@@ -277,6 +276,3 @@ Full-Stack Developer · Bhopal, India
 - Email: shivamkk1009@gmail.com
 
 > Built from scratch. No templates. No boilerplate UI.
-
----
-*Designed & Built by Shivam Kumar Kesharwani © 2026*

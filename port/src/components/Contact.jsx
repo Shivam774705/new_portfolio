@@ -390,7 +390,7 @@ export default function Contact() {
 
       <section id="contact" className="section pad">
         <div className="maxw">
-          <div className="sec-label will-fade">// 04 — Get In Touch</div>
+          <div className="sec-label will-fade">// 06 — Get In Touch</div>
 
           <div className="contact-layout">
             {/* ── LEFT COLUMN ── */}

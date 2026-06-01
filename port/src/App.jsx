@@ -6,8 +6,10 @@ import Cursor from './components/Cursor';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import About from './components/About';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -25,9 +27,10 @@ const Navbar = () => {
   const navLinks = [
     { label: 'Home', href: '#hero', id: 'hero' },
     { label: 'About', href: '#about', id: 'about' },
-    { label: 'Skills', href: '#skill', id: 'skill' },
+    { label: 'Experience', href: '#experience', id: 'experience' },
     { label: 'Projects', href: '#project', id: 'project' },
-    { label: 'Experience', href: '#about', id: 'experience' },
+    { label: 'Skills', href: '#skill', id: 'skill' },
+    { label: 'Certificates', href: '#certificates', id: 'certificates' },
     { label: 'Contact', href: '#contact', id: 'contact' },
   ];
 
@@ -385,12 +388,7 @@ function App() {
             scrollTrigger: { trigger: el, start: 'top 85%' },
           });
         });
-        gsap.utils.toArray('.project-item').forEach((el, i) => {
-          gsap.from(el, {
-            opacity: 0, y: 40, duration: 0.7, delay: i * 0.12, ease: 'power2.out',
-            scrollTrigger: { trigger: el, start: 'top 85%' },
-          });
-        });
+
         ScrollTrigger.create({
           onUpdate: (self) => {
             const vel = self.getVelocity();
@@ -411,8 +409,10 @@ function App() {
           <Hero />
           <Marquee id="mq1" speed={0.6} items={marqueeItems} />
           <About />
+          <Experience />
           <Projects />
           <Skills />
+          <Certificates />
           <Contact />
           <Footer />
         </>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shivam-kumar-kesharwani.vercel.app/sitemap.xml
+Sitemap: https://shivam-kumar.onrender.com/sitemap.xml

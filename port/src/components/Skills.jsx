@@ -1,119 +1,105 @@
+import React from 'react';
+
+const CATEGORIES = [
+  {
+    id: 'languages',
+    icon: '</>',
+    name: 'LANGUAGES',
+    skills: ['JavaScript (ES6+)', 'Python', 'SQL', 'HTML5', 'CSS3'],
+    highlight: [0, 1]
+  },
+  {
+    id: 'frontend',
+    icon: '⬡',
+    name: 'FRONTEND',
+    skills: ['React.js', 'Tailwind CSS', 'SCSS', 'Responsive Design', 'Figma & Canva'],
+    highlight: [0, 1]
+  },
+  {
+    id: 'backend',
+    icon: '⊟',
+    name: 'BACKEND',
+    skills: ['Django', 'REST APIs', 'Node.js', 'Express.js', 'JWT Auth'],
+    highlight: [0, 1]
+  },
+  {
+    id: 'databases',
+    icon: '⊞',
+    name: 'DATABASES',
+    skills: ['MySQL', 'MongoDB', 'NeonDB'],
+    highlight: [0, 1]
+  },
+  {
+    id: 'devops',
+    icon: '⚙',
+    name: 'DEVOPS & TOOLS',
+    skills: ['Git & GitHub', 'Postman & Thunder Client', 'VS Code', 'Render', 'Vercel'],
+    highlight: [0, 1],
+    fullWidth: true
+  }
+];
+
 const Skills = () => {
   return (
     <section id="skill" className="section pad">
       <div className="maxw">
-        <div className="sec-label will-fade">// 03 — Tech Canvas</div>
-        <div className="skills-layout">
-          <div className="skills-left">
-            <h2 className="sec-big will-fade">
-              MY<br />
-              <span className="orange">STACK</span>
+        <div className="sec-label will-fade">// 04 — Tech Canvas</div>
+
+        {/* ── HEADER ROW ── */}
+        <div className="sk-header-row will-fade">
+          <div className="sk-header-left">
+            <h2 className="sec-big">
+              MY
+              <span className="orange"> STACK</span>
             </h2>
-            <p className="skills-left-desc will-fade">
-              Technologies & tools I use to craft modern, scalable, and efficient web applications.
+          </div>
+          <div className="sk-header-right">
+            <p className="sk-header-desc">
+              Technologies &amp; tools I use to craft modern, scalable, and efficient web applications.
             </p>
-            <div className="skills-counters will-fade">
-              <div className="sk-counter">
-                <div className="sk-counter-num">
-                  <span>24</span>+
-                </div>
-                <div className="sk-counter-label">Total Skills</div>
-              </div>
-              <div className="sk-counter">
-                <div className="sk-counter-num">
-                  <span>5</span>
-                </div>
-                <div className="sk-counter-label">Categories</div>
-              </div>
-              <div className="sk-counter">
-                <div className="sk-counter-num">
-                  <span>10</span>+
-                </div>
-                <div className="sk-counter-label">Projects Built</div>
-              </div>
-              <div className="sk-counter">
-                <div className="sk-counter-num">
-                  <span>2</span>+
-                </div>
-                <div className="sk-counter-label">Years Coding</div>
-              </div>
-            </div>
           </div>
-          <div className="skills-right will-slide-right">
-            <div className="skill-cat">
-              <div className="skill-cat-header">
-                <div className="skill-cat-name">Languages</div>
-                <div className="skill-cat-count">5 skills</div>
-              </div>
-              <div className="skill-cat-body">
-                <div className="skill-pills">
-                  <div className="sp"><div className="sp-dot"></div>JavaScript (ES6+)</div>
-                  <div className="sp"><div className="sp-dot"></div>Python</div>
-                  <div className="sp"><div className="sp-dot"></div>SQL</div>
-                  <div className="sp"><div className="sp-dot"></div>HTML5</div>
-                  <div className="sp"><div className="sp-dot"></div>CSS3</div>
-                </div>
-              </div>
-            </div>
-            <div className="skill-cat">
-              <div className="skill-cat-header">
-                <div className="skill-cat-name">Frontend</div>
-                <div className="skill-cat-count">5 skills</div>
-              </div>
-              <div className="skill-cat-body">
-                <div className="skill-pills">
-                  <div className="sp"><div className="sp-dot"></div>React.js</div>
-                  <div className="sp"><div className="sp-dot"></div>Tailwind CSS</div>
-                  <div className="sp"><div className="sp-dot"></div>SCSS</div>
-                  <div className="sp"><div className="sp-dot"></div>Responsive Design</div>
-                  <div className="sp"><div className="sp-dot"></div>Figma & Canva</div>
-                </div>
-              </div>
-            </div>
-            <div className="skill-cat">
-              <div className="skill-cat-header">
-                <div className="skill-cat-name">Backend</div>
-                <div className="skill-cat-count">5 skills</div>
-              </div>
-              <div className="skill-cat-body">
-                <div className="skill-pills">
-                  <div className="sp"><div className="sp-dot"></div>Django</div>
-                  <div className="sp"><div className="sp-dot"></div>Node.js</div>
-                  <div className="sp"><div className="sp-dot"></div>Express.js</div>
-                  <div className="sp"><div className="sp-dot"></div>REST APIs</div>
-                  <div className="sp"><div className="sp-dot"></div>JWT Auth</div>
-                </div>
-              </div>
-            </div>
-            <div className="skill-cat">
-              <div className="skill-cat-header">
-                <div className="skill-cat-name">Databases</div>
-                <div className="skill-cat-count">3 skills</div>
-              </div>
-              <div className="skill-cat-body">
-                <div className="skill-pills">
-                  <div className="sp"><div className="sp-dot"></div>MySQL</div>
-                  <div className="sp"><div className="sp-dot"></div>MongoDB</div>
-                  <div className="sp"><div className="sp-dot"></div>NeonDB</div>
-                </div>
-              </div>
-            </div>
-            <div className="skill-cat">
-              <div className="skill-cat-header">
-                <div className="skill-cat-name">DevOps & Tools</div>
-                <div className="skill-cat-count">5 skills</div>
-              </div>
-              <div className="skill-cat-body">
-                <div className="skill-pills">
-                  <div className="sp"><div className="sp-dot"></div>Git & GitHub</div>
-                  <div className="sp"><div className="sp-dot"></div>Postman & Thunder Client</div>
-                  <div className="sp"><div className="sp-dot"></div>VS Code</div>
-                  <div className="sp"><div className="sp-dot"></div>Render</div>
-                  <div className="sp"><div className="sp-dot"></div>Vercel</div>
-                </div>
-              </div>
-            </div>
+        </div>
+
+        {/* ── STAT COUNTERS ── */}
+        <div className="sk-stats-row will-fade">
+          <div className="sk-stat-card">
+            <div className="sk-stat-num"><span>24</span>+</div>
+            <div className="sk-stat-label">TOTAL SKILLS</div>
           </div>
+          <div className="sk-stat-card">
+            <div className="sk-stat-num"><span>5</span></div>
+            <div className="sk-stat-label">CATEGORIES</div>
+          </div>
+          <div className="sk-stat-card">
+            <div className="sk-stat-num"><span>10</span>+</div>
+            <div className="sk-stat-label">PROJECTS BUILT</div>
+          </div>
+          <div className="sk-stat-card">
+            <div className="sk-stat-num"><span>2</span>+</div>
+            <div className="sk-stat-label">YEARS CODING</div>
+          </div>
+        </div>
+
+        {/* ── SKILL CATEGORY GRID ── */}
+        <div className="sk-grid will-fade">
+          {CATEGORIES.map((cat) => (
+            <div key={cat.id} className={`sk-card${cat.fullWidth ? ' sk-card--full' : ''}`}>
+              <div className="sk-card-header">
+                <div className="sk-card-title">
+                  <span className="sk-card-icon">{cat.icon}</span>
+                  <span className="sk-card-name">{cat.name}</span>
+                </div>
+                <span className="sk-card-count">{cat.skills.length} skills</span>
+              </div>
+              <div className="sk-pills">
+                {cat.skills.map((skill, i) => (
+                  <span key={i} className={`sk-pill${cat.highlight.includes(i) ? ' sk-pill--lit' : ''}`}>
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -121,4 +107,3 @@ const Skills = () => {
 };
 
 export default Skills;
-// Note: The specific horizontal scroll with velocity tilt will be handled in the main component.

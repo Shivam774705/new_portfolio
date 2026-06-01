@@ -5,59 +5,84 @@ const About = () => {
     <section id="about" className="section pad">
       <div className="maxw">
         <div className="sec-label will-fade">// 01 — About</div>
-        <h2 className="sec-big will-fade">
+        <h2 className="sec-big will-fade" style={{ marginBottom: '2.5rem' }}>
           ABOUT&nbsp;
           <span className="orange">ME</span>
         </h2>
+
         <div className="about-grid">
+          {/* ── LEFT COLUMN: STORY & EXPERIENCE ── */}
           <div className="about-left">
-            <p className="about-intro will-fade">
-              I'm a <strong>Full-Stack Developer</strong> from Bhopal, India — passionate about building{' '}
-              <span className="hl" style={{ color: 'var(--orange)' }}>
-                scalable, responsive, production-ready
-              </span>{' '}
-              web applications. I specialize in full-stack ecosystems, from polished React frontends to robust Django and Node.js backends.
+            <span className="about-narrative-tag will-fade">✦ About</span>
+            <p className="about-intro will-fade" style={{ fontSize: '1.25rem', color: '#fff', fontWeight: 600, marginBottom: '0.8rem', lineHeight: 1.4 }}>
+              Building things that actually ship.
             </p>
-            <div className="will-fade">
-              <div className="exp-item">
-                <div className="exp-header">
-                  <div>
-                    <div className="exp-role">Junior Software Developer (Intern)</div>
-                    <div className="exp-company">Shroti Telecom Pvt. Ltd. (STPL)</div>
-                  </div>
-                  <div className="exp-date">Aug 2025 — Feb 2026</div>
-                </div>
-                <ul className="exp-points">
-                  <li>Developed 10+ responsive frontend screens for RMS and Airtel monitoring systems using HTML/CSS, JS, and Tailwind CSS.</li>
-                  <li>Built and maintained 10+ REST API endpoints in Django to process real-time site monitoring operational data.</li>
-                  <li>Applied UI/UX principles via Figma to design intuitive interfaces.</li>
-                  <li>Validated and debugged APIs using Postman and Thunder Client, improving production stability.</li>
-                </ul>
-                <div className="chip-row">
-                  <span className="chip">Django</span>
-                  <span className="chip">JavaScript</span>
-                  <span className="chip">Tailwind CSS</span>
-                  <span className="chip">React.js</span>
-                  <span className="chip">Figma</span>
-                  <span className="chip">MySQL</span>
-                </div>
-              </div>
-            </div>
-            <div className="cert-block will-fade" style={{ marginTop: '1rem' }}>
-              <div className="cert-tag">📜 Certifications & Training</div>
-              <div className="cert-name">Django Essentials: Build and Deploy Real-World Apps</div>
-              <div className="cert-platform">Udemy · 2025</div>
-              <div className="cert-desc">
-                Hands-on experience in Django web development, REST API design, database integration, and production deployment.
-              </div>
-              <div className="cert-name" style={{ marginTop: '0.8rem' }}>Python Essential 1 & 2</div>
-              <div className="cert-platform">Cisco Networking Academy</div>
-            </div>
+            <p className="about-narrative-p will-fade">
+              I'm <strong>Shivam Kumar Kesharwani</strong> — a full-stack developer from Bhopal, India.
+              I build scalable, modern, and production-ready web applications, from polished React frontends
+              to robust Django backends. I am currently working as a full-time
+              <strong> Software Developer</strong> at Shroti Telecom Pvt. Ltd. after receiving a return job offer at the end of my initial internship.
+            </p>
+
+            <span className="about-narrative-tag will-fade" style={{ marginTop: '2rem', display: 'block' }}>✦ The story</span>
+            <p className="about-narrative-p will-fade">
+              My journey into software development started with a simple question: <strong>"How does code become a website?"</strong>
+            </p>
+            <p className="about-narrative-p will-fade">
+              When I first heard about web development, I had no idea how websites were built or what programming actually looked like. I used to think creating websites was something incredibly difficult that only highly skilled experts could do. At the time, I only knew about HTML and CSS, and I assumed that was all there was to building websites.
+            </p>
+            <p className="about-narrative-p will-fade">
+              Curiosity pushed me to learn more. As I started building small projects and exploring new technologies, I gradually discovered how websites actually work—from frontend interfaces and backend logic to databases, APIs, and server communication. The more I learned, the more fascinated I became by the process of turning ideas into real, working products.
+            </p>
+            <p className="about-narrative-p will-fade">
+              What began as a desire to understand how websites are built eventually became a passion for creating scalable applications and solving real-world problems through software.
+            </p>
+            <p className="about-narrative-p will-fade">
+              Today, I specialize in full-stack development with React and Django, but I'm not tied to any particular technology. I've built real-time bidding platforms, B2B lead enrichment pipelines, official alumni portals, AI-powered interview simulators, and enterprise telecom applications. I believe the best solutions come from choosing the right tools for the problem rather than forcing the problem to fit the tools.
+            </p>
           </div>
+
+          {/* ── RIGHT COLUMN: QUICK FACTS & EDUCATION ── */}
           <div className="about-right will-slide-right">
+            <div className="facts-card">
+              <div className="facts-title">✦ Quick Facts</div>
+              <ul className="facts-list">
+                <li className="facts-item">
+                  <span className="facts-label">Based in</span>
+                  <span className="facts-val">Bhopal, Madhya Pradesh, India 🇮🇳</span>
+                </li>
+                <li className="facts-item">
+                  <span className="facts-label">Current Role</span>
+                  <span className="facts-val">Software Developer at Shroti Telecom</span>
+                </li>
+                <li className="facts-item">
+                  <span className="facts-label">Education</span>
+                  <span className="facts-val">B.Tech CSE (2022-2026) — SISTec GN</span>
+                </li>
+                <li className="facts-item">
+                  <span className="facts-label">Focus Areas</span>
+                  <span className="facts-val">Full-Stack, APIs, AI & Automation</span>
+                </li>
+                <li className="facts-item">
+                  <span className="facts-label">Hackathons</span>
+                  <span className="facts-val">SIH & National Level Contributor</span>
+                </li>
+                <li className="facts-item">
+                  <span className="facts-label">Tech Stack</span>
+                  <span className="facts-val">React • Django • MySQL</span>
+                </li>
+                <li className="facts-item">
+                  <span className="facts-label">Open to</span>
+                  <span className="facts-val">Software Roles & Collabs</span>
+                </li>
+              </ul>
+            </div>
+
             <div className="edu-block">
-              <div className="edu-title">🎓 Education</div>
-              <div className="edu-item">
+              <div className="edu-title" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                🎓 Education
+              </div>
+              <div className="edu-item" style={{ borderRadius: '12px' }}>
                 <div className="edu-deg">B.Tech. — Computer Science & Engineering</div>
                 <div className="edu-school">Sagar Group of Institutions (SISTec GN)</div>
                 <div className="edu-meta">
@@ -65,7 +90,7 @@ const About = () => {
                   <span>2022 - 2026 · CGPA 7.01/10</span>
                 </div>
               </div>
-              <div className="edu-item">
+              <div className="edu-item" style={{ borderRadius: '12px' }}>
                 <div className="edu-deg">12th Grade</div>
                 <div className="edu-school">Sant Atulanand Residential Academy (SARA)</div>
                 <div className="edu-meta">
@@ -73,7 +98,7 @@ const About = () => {
                   <span>2022 · 69.4%</span>
                 </div>
               </div>
-              <div className="edu-item">
+              <div className="edu-item" style={{ borderRadius: '12px' }}>
                 <div className="edu-deg">10th Grade</div>
                 <div className="edu-school">Shemford Futuristic School</div>
                 <div className="edu-meta">
