@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { API } from '../config';
+import emailjs from '@emailjs/browser';
 const BALLOONS = [
   {
     id: 'github',
@@ -67,27 +67,38 @@ export default function Contact() {
     setStatus("sending");
     setStatusMsg("Sending message...");
 
-    try {
-      const response = await fetch(`${API}/api/send`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      });
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-      if (response.ok) {
+    // Check if EmailJS keys are populated
+    if (!serviceId || !templateId || !publicKey || serviceId === 'YOUR_SERVICE_ID' || serviceId === '') {
+      console.error("EmailJS is not configured. Please set your credentials in the environment.");
+      setStatus("error");
+      setStatusMsg("EmailJS is not configured. Please check environment variables.");
+      return;
+    }
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    try {
+      const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      if (result.status === 200) {
         setStatus("success");
         setStatusMsg("Message sent successfully!");
         setFormData({ name: '', email: '', message: '' });
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to send message");
+        throw new Error("Failed to send message via EmailJS");
       }
     } catch (error) {
       console.error("Contact Form Error:", error);
       setStatus("error");
-      setStatusMsg(error.message || "Something went wrong. Please try again.");
+      setStatusMsg(error.text || error.message || "Something went wrong. Please try again.");
     }
   };
 
