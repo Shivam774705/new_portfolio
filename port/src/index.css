@@ -268,38 +268,28 @@ body.cursor-big #cur { width:60px; height:60px; background:rgba(232,93,4,0.15); 
 .projects-container {
   position: relative;
   width: 100%;
-}
-
-@media (min-width: 801px) {
-  .projects-container {
-    height: 520px; /* fixed height viewport for centered cards */
-    overflow: hidden;
-  }
+  height: 520px; /* fixed height for pinned card deck on all screens */
+  overflow: hidden;
 }
 
 .project-item {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-}
-
-@media (min-width: 801px) {
-  .project-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-card {
   background: linear-gradient(135deg, rgba(16, 18, 16, 0.98) 0%, rgba(8, 10, 8, 1) 100%);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 20px;
-  padding: 2.2rem 2.5rem; /* tighter padding for optimized vertical space */
+  padding: 2.2rem 2.5rem;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  height: 480px; /* consistent height on all screens */
   
   display: grid;
   grid-template-columns: 0.12fr 1.28fr 0.60fr;
@@ -310,12 +300,6 @@ body.cursor-big #cur { width:60px; height:60px; background:rgba(232,93,4,0.15); 
   overflow: hidden;
   width: 100%;
   max-width: 100%;
-}
-
-@media (min-width: 801px) {
-  .project-card {
-    height: 480px; /* fixed consistent height */
-  }
 }
 
 .project-card:hover {
@@ -619,25 +603,20 @@ footer {
   .about-intro { font-size: 0.95rem; }
   .exp-role { font-size: 1.25rem; }
 
-  /* projects */
-  .project-item {
-    position: relative;
-    height: auto;
-    display: block;
-    margin-bottom: 2.5rem;
-    top: auto !important;
+  /* projects — mobile: single-column card layout to fit the pinned deck */
+  .projects-container {
+    height: 460px;
   }
   .project-card {
     grid-template-columns: 1fr;
-    gap: 1.2rem;
-    padding: 2rem;
+    gap: 1rem;
+    padding: 1.8rem;
     border-radius: 16px;
-    max-width: 100%;
-    max-height: none;
-    overflow-y: visible;
+    height: 420px;
+    overflow-y: auto;
   }
-  .p-num { font-size: 3rem; }
-  .p-title { font-size: 2rem; }
+  .p-num { font-size: 2.5rem; }
+  .p-title { font-size: 1.8rem; }
   .p-meta { text-align: left; }
   .p-links { justify-content: flex-start; }
   .p-chip-col { justify-content: flex-start; }

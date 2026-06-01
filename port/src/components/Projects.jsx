@@ -142,80 +142,47 @@ const PROJECTS_DATA = [
 
 const Projects = () => {
   useEffect(() => {
-    let mm = gsap.matchMedia();
+    const cards = gsap.utils.toArray('.project-item');
 
-    // Desktop Layout (pinned deck)
-    mm.add('(min-width: 801px)', () => {
-      const cards = gsap.utils.toArray('.project-item');
+    // Initial state — first card visible, rest hidden below
+    gsap.set(cards, { yPercent: 0, opacity: 1, scale: 1 });
+    gsap.set(cards.slice(1), { yPercent: 120, opacity: 0 });
 
-      // Reset card states for desktop
-      gsap.set(cards, { yPercent: 0, opacity: 1, scale: 1 });
-
-      // Hide other cards off screen below
-      gsap.set(cards.slice(1), { yPercent: 120, opacity: 0 });
-
-      // Create main pin timeline on the entire #project section
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '#project',
-          pin: true,
-          pinSpacing: true,
-          start: 'top top',
-          end: () => '+=' + (window.innerHeight * (cards.length - 1) * 0.8),
-          scrub: 1,
-          invalidateOnRefresh: true,
-        }
-      });
-
-      cards.forEach((card, i) => {
-        if (i === 0) return;
-
-        // Slide this card up to center
-        tl.to(card, {
-          yPercent: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power1.inOut'
-        });
-
-        // Simultaneously scale down and dim the previous card to add depth
-        tl.to(cards[i - 1], {
-          scale: 0.94,
-          opacity: 0.4,
-          duration: 1,
-          ease: 'power1.inOut'
-        }, '<');
-      });
+    // Pinned deck timeline — works on all screen sizes
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#project',
+        pin: true,
+        pinSpacing: true,
+        start: 'top top',
+        end: () => '+=' + (window.innerHeight * (cards.length - 1) * 0.8),
+        scrub: 1,
+        invalidateOnRefresh: true,
+      }
     });
 
-    // Mobile Layout (standard scrolling)
-    mm.add('(max-width: 800px)', () => {
-      const cards = gsap.utils.toArray('.project-item');
+    cards.forEach((card, i) => {
+      if (i === 0) return;
 
-      // Clear inline style conflicts from desktop
-      gsap.set(cards, { clearProps: 'all' });
-
-      // Apply simple entrance animation
-      cards.forEach((card) => {
-        gsap.fromTo(card,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 88%',
-              toggleActions: 'play none none none'
-            }
-          }
-        );
+      // Slide this card up into view
+      tl.to(card, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power1.inOut'
       });
+
+      // Scale down & dim the previous card to add depth
+      tl.to(cards[i - 1], {
+        scale: 0.94,
+        opacity: 0.4,
+        duration: 1,
+        ease: 'power1.inOut'
+      }, '<');
     });
 
     return () => {
-      mm.revert();
+      ScrollTrigger.getAll().forEach(st => st.kill());
     };
   }, []);
 
