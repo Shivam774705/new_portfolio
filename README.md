@@ -1,6 +1,6 @@
 # Shivam Kumar Kesharwani — Personal Portfolio
 
-> **Live →** [https://shivam-kumar.onrender.com](https://shivam-kumar.onrender.com/)
+> **Live →** [https://shivam-kumar.onrender.com](https://shivam-kumar.onrender.com)
 
 A production-ready personal portfolio built to communicate my work, experience, and technical identity to recruiters and collaborators. Designed with motion, dark-mode aesthetics, and a component-driven architecture — no templates, no UI kits.
 
