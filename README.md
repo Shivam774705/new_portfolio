@@ -278,7 +278,7 @@ Full-Stack Developer · Bhopal, India
 
 - GitHub: [@Shivam774705](https://github.com/Shivam774705)
 - LinkedIn: [shivam-kumar-kesharwani](https://linkedin.com/in/shivam-kumar-kesharwani)
-- Email: shivamkk1009@gmail.com
+- Email: kumarshivam774705@gmail.com
 
 > Built from scratch. No templates. No boilerplate UI.
 
