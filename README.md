@@ -64,7 +64,7 @@ The portfolio is a **single-page application** with smooth scroll-driven section
 | Tool | Purpose |
 |---|---|
 | Vite Preview | Local production preview |
-| Vercel | Zero-config CI/CD deployment |
+| Render | Zero-config CI/CD deployment |
 | Git & GitHub | Source control |
 | Postman | API endpoint validation (Contact form backend) |
 
@@ -254,7 +254,7 @@ dist/assets/index-*.js          426.52 kB │ gzip: 137.83 kB
 
 ## Deployment
 
-Deployed on **Vercel** with automatic deployments on push to `main`.
+Deployed on **Render** with automatic deployments on push to `main`.
 
 ```
 Branch: main
@@ -263,7 +263,7 @@ Output Directory: dist
 Framework Preset: Vite
 ```
 
-Environment variables are set via `.env.production` and Vercel's project dashboard.
+Environment variables are set via `.env.production` and Render's project dashboard.
 
 ---
 
