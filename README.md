@@ -66,40 +66,44 @@ The portfolio is a **single-page application** with smooth scroll-driven section
 | Vite Preview | Local production preview |
 | Render | Zero-config CI/CD deployment |
 | Git & GitHub | Source control |
-| Postman | API endpoint validation (Contact form backend) |
+| EmailJS Dashboard | Custom template creation and email delivery tracking |
 
 ---
 
 ## Project Structure
 
-```
+```text
 new_portfolio/
-└── port/
-    ├── public/
-    │   └── icons.svg           # Inline SVG sprite (social icons, arrow icons)
-    ├── src/
-    │   ├── assets/             # Static files (resume PDF, certificates, project images)
-    │   ├── components/
-    │   │   ├── Hero.jsx        # Landing section: animated headline, CTA buttons, status badge
-    │   │   ├── Marquee.jsx     # Velocity-tilt infinite scroll ticker
-    │   │   ├── About.jsx       # Split-grid: story narrative + quick facts + education cards
-    │   │   ├── Experience.jsx  # Timeline: Shroti Telecom full-time + internship roles
-    │   │   ├── Projects.jsx    # GSAP-pinned card deck (5 projects + Explore More card)
-    │   │   ├── Skills.jsx      # Stats row + 2×2 skill category card grid
-    │   │   ├── Certificates.jsx# Certificate modal lightbox gallery
-    │   │   ├── Contact.jsx     # EmailJS contact form + social links
-    │   │   ├── Footer.jsx      # Minimal branding footer
-    │   │   ├── Cursor.jsx      # Custom SVG cursor with hover tracking
-    │   │   ├── Loader.jsx      # Preloader spinner
-    │   │   ├── PillNav.jsx     # Floating pill navigation (section-aware active state)
-    │   │   └── Blog.jsx        # Placeholder blog section
-    │   ├── App.jsx             # Root — Navbar, GSAP global effects, section assembly
-    │   ├── index.css           # Full design system: tokens, layouts, components, breakpoints
-    │   ├── config.js           # Site metadata (name, email, social links)
-    │   └── main.jsx            # React DOM entry point
-    ├── index.html              # Shell HTML with font links, meta tags, preconnects
-    ├── vite.config.js          # Vite + React + Tailwind plugin config
-    └── package.json            # Dependencies and scripts
+├── port/
+│   ├── public/
+│   │   ├── icons.svg           # Inline SVG sprite (social icons, arrow icons)
+│   │   └── Shivam (1).png      # Profile picture asset
+│   ├── src/
+│   │   ├── assets/             # Static files (resume PDF, certificates, project images)
+│   │   ├── components/
+│   │   │   ├── Hero.jsx        # Landing section: animated headline, CTA buttons, status badge
+│   │   │   ├── Marquee.jsx     # Velocity-tilt infinite scroll ticker
+│   │   │   ├── About.jsx       # Split-grid: story narrative + quick facts + education cards
+│   │   │   ├── Experience.jsx  # Timeline: Shroti Telecom full-time + internship roles
+│   │   │   ├── Projects.jsx    # GSAP-pinned card deck (5 projects + Explore More card)
+│   │   │   ├── Skills.jsx      # Stats row + 2×2 skill category card grid
+│   │   │   ├── Certificates.jsx# Certificate modal lightbox gallery
+│   │   │   ├── Contact.jsx     # EmailJS contact form + social links
+│   │   │   ├── Footer.jsx      # Minimal branding footer
+│   │   │   ├── Cursor.jsx      # Custom SVG cursor with hover tracking
+│   │   │   ├── Loader.jsx      # Preloader spinner
+│   │   │   ├── PillNav.jsx     # Floating pill navigation (section-aware active state)
+│   │   │   └── Blog.jsx        # Placeholder blog section
+│   │   ├── App.jsx             # Root — Navbar, GSAP global effects, section assembly
+│   │   ├── index.css           # Full design system: tokens, layouts, components, breakpoints
+│   │   └── main.jsx            # React DOM entry point
+│   ├── .env                    # Local environment secrets template (EmailJS)
+│   ├── .env.production         # Production build configuration template
+│   ├── .gitignore              # Git ignore rules (securing .env variables)
+│   ├── index.html              # Shell HTML with font links, meta tags, preconnects
+│   ├── vite.config.js          # Vite + React + Tailwind plugin config
+│   └── package.json            # Dependencies and scripts
+└── README.md                   # Repository documentation (this file)
 ```
 
 ---
@@ -244,10 +248,10 @@ npm run preview
 
 ### Build Output (latest)
 ```
-dist/index.html                  12.53 kB │ gzip:   3.26 kB
-dist/assets/index-*.css          63.89 kB │ gzip:  12.83 kB
-dist/assets/index-*.js          426.52 kB │ gzip: 137.83 kB
-✓ 81 modules transformed — built in ~1s
+dist/index.html                  13.45 kB │ gzip:   3.45 kB
+dist/assets/index-*.css          98.18 kB │ gzip:  15.07 kB
+dist/assets/index-*.js          426.69 kB │ gzip: 139.96 kB
+✓ 100 modules transformed — built in 818ms
 ```
 
 ---
