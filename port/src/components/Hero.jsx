@@ -219,7 +219,7 @@ const Hero = () => {
 
               {/* Image */}
               <div className="hero-img-bg-glow" />
-              <img src={heroImg} alt="Shivam Kumar Kesharwani" className="hero-photo" />
+              <img src={heroImg} alt="Shivam Kumar Kesharwani" className="hero-photo" width="400" height="400" fetchpriority="high" decoding="async" />
             </div>
           </div>
         </div>
